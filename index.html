@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Protfolio</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="wrap">
+        <div class="main_icon_box">
+            <ul class="main_icon_list">
+                <li>
+                    <a href="#" @click="showModal = true">
+                        <img src="images/images.png" alt="">
+                        <span>배경화면</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <footer>
+            <div id="app" class="icon_box">
+                <ul class="icon_list">
+                    <li class="tooltip-toggle" data-tooltip="Project" >
+                        <a href="#" @click="showModal = true">
+                            <img src="images/folder.png" alt="">
+                        </a>
+                    </li>
+                    <li class="tooltip-toggle" data-tooltip="미정">
+                        <a href="#">
+                            <img src="images/AppIcon-1.png" alt="">
+                        </a>
+                    </li>
+                    <li class="tooltip-toggle" data-tooltip="배경화면">
+                        <a href="#">
+                            <img src="images/images.png" alt="">
+                        </a>
+                    </li>
+                    <li class="tooltip-toggle" data-tooltip="미정">
+                        <a href="#">
+                            <img src="images/Contact.png" alt="">
+                        </a>
+                    </li>
+                    <li class="tooltip-toggle" data-tooltip="Github">
+                        <a href="#">
+                            <img src="images/github-96.png" alt="">
+                        </a>
+                    </li>
+                </ul>
+                <modal v-if="showModal" @close="showModal = false"></modal>
+            </div>
+        </footer>
+    </div>
+    <script type="text/x-template" id="modal-template">
+        <div name="modal">
+            <div class="modal-mask">
+                <div class="modal-wrapper">
+                    <div class="modal-container">
+                        <aside>
+                            <button @click="$emit('close')"></button>
+                            <button></button>
+                            <button></button>
+                        </aside>
+                        <section>
+                            
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script>
+        Vue.component('modal', {
+          template: '#modal-template'
+        });
+
+        // start app
+        new Vue({
+            el: '#app',
+            data: {
+                showModal: false
+            }
+        });
+    </script>
+</body>
+</html>
