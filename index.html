@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 </head>
 <body>
@@ -24,7 +25,7 @@
             <div id="app" class="icon_box">
                 <ul class="icon_list">
                     <li class="tooltip-toggle" data-tooltip="Project" >
-                        <a href="#" @click="showModal = true">
+                        <a href="#">
                             <img src="images/folder.png" alt="">
                         </a>
                     </li>
@@ -49,39 +50,51 @@
                         </a>
                     </li>
                 </ul>
-                <modal v-if="showModal" @close="showModal = false"></modal>
+
             </div>
         </footer>
     </div>
-    <script type="text/x-template" id="modal-template">
-        <div name="modal">
-            <div class="modal-mask">
-                <div class="modal-wrapper">
-                    <div class="modal-container">
-                        <aside>
-                            <button @click="$emit('close')"></button>
-                            <button></button>
-                            <button></button>
-                        </aside>
-                        <section>
-                            
-                        </section>
-                    </div>
+    <div class="modal">
+        <div class="modal-mask">
+            <div class="modal-wrapper">
+                <div class="modal-container">
+                    <aside>
+                        <button></button>
+                        <button></button>
+                        <button></button>
+                        <ul class="menu">
+                            <li>General
+                                <ul class="general">
+                                    <li :class="bg"><a href="#">All</a></li>
+                                </ul>
+                            </li>
+                            <li>Language
+                                <ul class="language">
+                                    <li><a href="#">Java</a></li>
+                                    <li><a href="#">Swift</a></li>
+                                    <li><a href="#">C</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </aside>
+                    <section>
+
+                    </section>
                 </div>
             </div>
         </div>
-    </script>
+    </div>
     <script>
-        Vue.component('modal', {
-          template: '#modal-template'
+        $(".icon_list>li:nth-of-type(1)").click(function(){
+            $(".modal").css("display", "block");
         });
+        $(".modal-container>aside>button:first").click(function(){
+            $(".modal").css("display", "none");
+        });
+        $(".menu>li>ul>li").click(function(){
+            $(".menu li").removeClass("bg");
+            $(this).addClass("bg");
 
-        // start app
-        new Vue({
-            el: '#app',
-            data: {
-                showModal: false
-            }
         });
     </script>
 </body>

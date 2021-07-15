@@ -93,6 +93,9 @@ footer {
     transition: all 0.75s ease;
 }
 /* modal */
+.modal {
+    display: none;
+}
 .modal-mask {
     position: fixed;
     z-index: 9998;
@@ -134,7 +137,7 @@ footer {
     height: 15px;
     border-radius: 50%;
     border: none;
-    margin: 10px 0 0 5px;
+    margin: 10px 0 20px 5px;
 }
 .modal-container aside button:nth-of-type(1) {
     background-color: rgb(230,104,92);
@@ -158,6 +161,27 @@ footer {
 
 .modal-leave-active {
     opacity: 0;
+}
+
+.menu>li {
+    padding: 10px;
+    font-size: 12px;
+    color: rgb(146, 144, 144);
+}
+.menu>li>ul>li {
+    padding: 2px 10px;
+}
+.menu>li>ul>li:hover {
+    background-color: rgba(210, 210, 210, 0.4);
+    border-radius: 10px;
+}
+.menu>li>ul>li>a {
+    color: #fff;
+    font-size: 18px;
+}
+.bg {
+    background-color: rgba(210, 210, 210, 0.4);
+    border-radius: 10px;
 }
 
 @media screen and (max-width: 580px){
